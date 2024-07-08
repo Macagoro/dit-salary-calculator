@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee calculator</title>
+    <style>
+       body{
+        margin:100px;
+        font-family:Arial, Helvetica, sans-serif
+       }
+        h1 {
+        color:red;
+      }
+
+       table{
+         border-collapse:collapse;
+         margin-top:24px;
+         width:40%
+       }
+
+       th,
+       td{
+        border:2px solid greeNyellow;
+        padding:10px;
+        text-align:left;
+       }
+        th{
+        background-color:rgb(147,144,144);
+
+        }
+
+    </style>
+    <script>
+      function calculatesalary() {
+         // Fetch input values and convert them to floats
+        const hourlyrate = parseFloat(document.getElementById("hourlyrate").value);
+        const lunchallowance = parseFloat(document.getElementById("lunchallowance").value);
+        const hoursworked = parseFloat(document.getElementById("hoursworked").value);
+
+        //calculate basic salary
+         const basicsalarly= hoursworked * hourlyrate;
+         const grosssalary = basicsalary + lunchallowance;
+         const incomeTax = 0.3 * grosssalary;
+         const netpay = grosssalary - incomeTax;
+
+    // Update HTML elements with results, fixing typos in element IDs
+         document.getElementById("basicsalary").textContent = basicsalary.toFixed(2);
+         document.getElementById("grosssalary").textContent = grosssalary.toFixed(2);
+         document.getElementById("incometax").textContent = incometax.toFixed(2);
+         document.getElementById("netpay").textContent = netpay.toFixed(2);
+      }
+    </script>
+</head>
+   <body>
+   <h1>Employee salary calculator</h1>
+     <label for="hourlyrate">Enter Hourly rate; </label>
+     <input type="number" id="hourlyrate" placeholder="hourlyrate" step="0.01"><br></br>
+
+     <label for="hourlyrate">Enter Lunch Allowance; </label>
+     <input type="number" id="lunchallowance" placeholder="Lunchallowance" step="0.01"><br></br>
+
+     <label for="hourlyrate">Enter Hours worked ;</label>
+     <input type="number" id="hoursworked" placeholder="hoursworked" step="0.01"><br></br>
+
+     <button onclick="calculatesalary()">Calculate Salary</button>
+      
+      <table>
+        <tr>
+          <th>Descrption </th>
+          <th>amount</th>
+         </tr>
+         <tr>
+          <td>Basicsalary</td>
+          <td></td>
+         </tr>
+         <tr>
+          <td>Grosssalary</td>
+          <td></td>
+         </tr>
+         <tr>
+          <td>InomeTax30%</td>
+          <td></td>
+         </tr>
+         <tr>
+          <td>Net pay</td>
+          <td></td>
+         </tr>
+      </table>
+      </body>
+ 
